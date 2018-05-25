@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<application>
+    <folders>
+        <folder type="source">target/app/sourceFolder</folder>
+        <folder type="archive">target/app/archiveFolder</folder>
+        <folder type="failed">target/app/failedFolder</folder>
+    </folders>
+    <files>
+        <mask>*</mask>
+    </files>
+    <fields title="true" splitter=";">
+        <field type="Integer">ID</field>
+        <field type="Date">Date</field>
+        <field type="Text">Name</field>
+        <field type="Float">Amount</field>
+    </fields>
+    <send folder="target/app/receivedFolder" pattern="received.csv" url="target/database/mts" user="SA" password="">
+            <field>Date</field>
+            <field>Name</field>
+            <field>Amount</field>
+    </send>
+</application>
